@@ -23,13 +23,49 @@ public class MyArchitectureTest {
     }
 	
 	@Test
-    public void services_should_only_be_accessed_by_Controllers() {
+    public void services_should_only_be_accessed_by_services() {
 		
 		JavaClasses classes = new ClassFileImporter().importPackages("com.myapp");
 		
 		ArchRule myRule = classes()
-		    .that().resideInAPackage("com.myapp.service")
-		    .should().onlyBeAccessed().byAnyPackage("com.myapp.service","com.myapp.controller");
+		    .that().resideInAPackage("..service..")
+		    .should().onlyBeAccessed().byAnyPackage("..service..");
+		 
+		 myRule.check(classes);
+    }
+	
+	@Test
+    public void controllers_should_only_be_accessed_by_services_controllers() {
+		
+		JavaClasses classes = new ClassFileImporter().importPackages("com.myapp");
+		
+		ArchRule myRule = classes()
+		    .that().resideInAPackage("..controller..")
+		    .should().onlyBeAccessed().byAnyPackage("..service..","..controller..");
+		 
+		 myRule.check(classes);
+    }
+	
+	@Test
+    public void daos_should_only_be_accessed_by_daos_services_controllers_queries() {
+		
+		JavaClasses classes = new ClassFileImporter().importPackages("com.myapp");
+		
+		ArchRule myRule = classes()
+		    .that().resideInAPackage("..dao..")
+		    .should().onlyBeAccessed().byAnyPackage("..dao..","..service..","..controller..","..query..");
+		 
+		 myRule.check(classes);
+    }
+	
+	@Test
+    public void queries_should_only_be_accessed_by_queries_controllers() {
+		
+		JavaClasses classes = new ClassFileImporter().importPackages("com.myapp");
+		
+		ArchRule myRule = classes()
+		    .that().resideInAPackage("..query..")
+		    .should().onlyBeAccessed().byAnyPackage("..query..","..controller..");
 		 
 		 myRule.check(classes);
     }
