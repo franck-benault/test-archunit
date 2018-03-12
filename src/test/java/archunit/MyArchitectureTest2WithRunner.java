@@ -6,6 +6,7 @@ import com.tngtech.archunit.junit.ArchUnitRunner;
 import com.tngtech.archunit.lang.ArchRule;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
+import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 import org.junit.runner.RunWith;
 
@@ -36,5 +37,10 @@ public class MyArchitectureTest2WithRunner {
 	public static final ArchRule queries_should_only_be_accessed_by_queries_controllers_rule =
 		classes().that().resideInAPackage("..query..")
 		.should().onlyBeAccessed().byAnyPackage("..query..","..controller..");
+	
+	@ArchTest
+	public static final ArchRule services_should_not_access_to_queries =
+		noClasses().that().resideInAPackage("..source..")
+		.should().accessClassesThat().resideInAPackage("..query..");
 
 }
