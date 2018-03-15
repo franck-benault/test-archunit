@@ -47,6 +47,7 @@ public class MyArchitectureTest2WithRunner {
 	public static final ArchRule services_should_not_access_to_queries =
 		noClasses().that().resideInAPackage("..service..")
 		.should().accessClassesThat().resideInAPackage("..query..")
+		.because("The service layer should not access to the query layer")
 		.as("services rule");
 	
 	@ArchTest

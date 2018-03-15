@@ -21,6 +21,7 @@ public class AmountService {
 	}
 	
 	public AmountService() {
+		//AmountQuery q = new AmountQuery();
 		//AmountDao a  = new AmountDao("975");
 	}
 
