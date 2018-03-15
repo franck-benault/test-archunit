@@ -1,5 +1,6 @@
 package archunit;
 
+import com.myapp.annotation.DataAccessObject;
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.junit.ArchUnitRunner;
@@ -54,8 +55,11 @@ public class MyArchitectureTest2WithRunner {
 	public static final ArchRule classes_dao_should_only_reside_in_dao_package = 
 		classes().that().haveNameMatching(".*Dao")
             .should().resideInAPackage("..dao..")
+            .andShould().beAnnotatedWith(DataAccessObject.class)
             .because("The dto stereotype can only be defined in layer dao.")
             .as("dao classes rule");
+	
+
 	
 	@ArchTest
 	 public static final ArchRule layers_are_respected = layeredArchitecture()

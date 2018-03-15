@@ -1,7 +1,9 @@
 package com.myapp.dao;
 
+import com.myapp.annotation.DataAccessObject;
 import com.myapp.service.AmountService;
 
+@DataAccessObject
 public class AmountDao {
 	
 	private String code2;
