@@ -7,6 +7,7 @@ import com.tngtech.archunit.lang.ArchRule;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
+import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 
 import org.junit.runner.RunWith;
 
@@ -44,8 +45,23 @@ public class MyArchitectureTest2WithRunner {
 	
 	@ArchTest
 	public static final ArchRule services_should_not_access_to_queries =
-		noClasses().that().resideInAPackage("..source..")
+		noClasses().that().resideInAPackage("..service..")
 		.should().accessClassesThat().resideInAPackage("..query..")
 		.as("services rule");
+	
+	@ArchTest
+	 public static final ArchRule layers_are_respected = layeredArchitecture()
+	            .layer("Services").definedBy("com.myapp.service")
+	            .layer("Daos").definedBy("com.myapp.dao")
+	            //.layer("Core").definedBy("com.tngtech.archunit.core..")
+	            //.layer("Lang").definedBy("com.tngtech.archunit.lang..")
+	            //.layer("Library").definedBy("com.tngtech.archunit.library..")
+	            //.layer("JUnit").definedBy("com.tngtech.archunit.junit..")
+
+	            .whereLayer("Services").mayNotBeAccessedByAnyLayer();
+	            //.whereLayer("Library").mayOnlyBeAccessedByLayers("JUnit")
+	            //.whereLayer("Lang").mayOnlyBeAccessedByLayers("Library", "JUnit")
+	           //.whereLayer("Core").mayOnlyBeAccessedByLayers("Lang", "Library", "JUnit")
+	//.whereLayer("Base").mayOnlyBeAccessedByLayers("Root", "Core", "Lang", "Library", "JUnit");
 
 }

@@ -1,6 +1,6 @@
 package com.myapp.dao;
 
-
+import com.myapp.service.AmountService;
 
 public class AmountDao {
 	
@@ -16,12 +16,19 @@ public class AmountDao {
 
 	public AmountDao(String code2) {
 		super();
+		
+
 		this.code2 = code2;
 	}
 
 	@Override
 	public String toString() {
+		//AmountService s = new AmountService();
 		return "AmountDao [code2=" + code2 + "]";
+	}
+	
+	public AmountService getService() {
+		return null;
 	}
 	
 	
