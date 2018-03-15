@@ -51,6 +51,13 @@ public class MyArchitectureTest2WithRunner {
 		.as("services rule");
 	
 	@ArchTest
+	public static final ArchRule classes_dao_should_only_reside_in_dao_package = 
+		classes().that().haveNameMatching(".*Dao")
+            .should().resideInAPackage("..dao..")
+            .because("The dto stereotype can only be defined in layer dao.")
+            .as("dao classes rule");
+	
+	@ArchTest
 	 public static final ArchRule layers_are_respected = layeredArchitecture()
 	            .layer("Services").definedBy("com.myapp.service")
 	            .layer("Daos").definedBy("com.myapp.dao")
