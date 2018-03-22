@@ -9,13 +9,17 @@ Archunit web site https://www.archunit.org/
 Github repository : https://github.com/TNG/ArchUnit
 
 # Articles over Archunit
-A lot of resources are in German. But here is a few resources in English :
+A lot of resources are still in German. But here is a few resources in English :
 
 * https://blog.novatec-gmbh.de/architecture-validation-archunit-vs-stereotype-check/
 * http://www.hascode.com/2017/07/assuring-architectural-rules-with-archunit/
 
 # Alternatives
-JDepend : https://github.com/clarkware/jdepend
+* JDepend 
+** Link: https://github.com/clarkware/jdepend 
+* Stereotype-check (checkstyle plugin extension)
+** Link: https://github.com/NovaTecConsulting/stereotype-check
+
 
 # Github examples
 * Franck Benault : https://github.com/franck-benault/test-archunit
