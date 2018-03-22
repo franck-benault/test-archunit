@@ -19,6 +19,8 @@ A lot of resources are still in German. But here is a few resources in English :
   * Link: https://github.com/clarkware/jdepend 
 * Stereotype-check (checkstyle plugin extension)
   * Link: https://github.com/NovaTecConsulting/stereotype-check
+* QAssistant
+  * Link: https://jqassistant.org/	
 
 
 # Github examples
