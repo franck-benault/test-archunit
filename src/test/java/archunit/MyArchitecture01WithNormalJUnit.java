@@ -9,7 +9,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import org.junit.Test;
 
 
-public class MyArchitectureTest {
+public class MyArchitecture01WithNormalJUnit {
 	
 
 	

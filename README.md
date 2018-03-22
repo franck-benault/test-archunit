@@ -26,3 +26,20 @@ A lot of resources are still in German. But here is a few resources in English :
 # Github examples
 * Franck Benault : https://github.com/franck-benault/test-archunit
 * Hascode https://bitbucket.org/hascode/archunit-tutorial.git
+
+# Examples
+## Write normal JUnit tests
+You can write architectural rules with "normal" JUnit tests.
+```java
+	@Test
+    public void services_should_only_be_accessed_by_services() {
+		
+		JavaClasses classes = new ClassFileImporter().importPackages("com.myapp");
+		
+		ArchRule myRule = classes()
+		    .that().resideInAPackage("..service..")
+		    .should().onlyBeAccessed().byAnyPackage("..service..");
+		 
+		 myRule.check(classes);
+    }
+```
