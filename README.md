@@ -16,9 +16,9 @@ A lot of resources are still in German. But here is a few resources in English :
 
 # Alternatives
 * JDepend 
-** Link: https://github.com/clarkware/jdepend 
+  * Link: https://github.com/clarkware/jdepend 
 * Stereotype-check (checkstyle plugin extension)
-** Link: https://github.com/NovaTecConsulting/stereotype-check
+  * Link: https://github.com/NovaTecConsulting/stereotype-check
 
 
 # Github examples
