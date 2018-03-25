@@ -78,6 +78,10 @@ public class MyArchitecture02WithRunner {
 }
 ```
 
+The tests are easy to read and auto-documented with the usage of the following methods
+* classes() / noClasses()
+* shoud() / andShould() / orShould()
+* because() / as()
 
 ## Define your own rules
 Example create a rule to avoid the usage of log4j library (if you want for example to use slf4j as interface).
