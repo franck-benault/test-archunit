@@ -1,6 +1,15 @@
 Archunit : "If you don’t check your architecture it doesn’t really exist."
 
-Archunit : the architecture rules and the checks are implemented in Java. 
+# Presentation
+Archunit est an architecture test library witten in Java to specify and assert architecture rules
+
+With Archunit, the architecture rules and the checks are implemented in Java. 
+
+You can specify rules
+* on dependencies between packages
+* on dependencies between classes
+* on annotations 
+* on inheritances 
 
 # Documentation
 Archunit web site https://www.archunit.org/
@@ -30,6 +39,7 @@ A lot of resources are still in German. But here is a few resources in English :
 # Examples
 ## Write normal JUnit tests
 You can write architectural rules with "normal" JUnit tests.
+
 ```java
 	@Test
     public void services_should_only_be_accessed_by_services() {
