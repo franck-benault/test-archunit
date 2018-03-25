@@ -21,7 +21,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.noClasses;
 
 @RunWith(ArchUnitRunner.class)
 @AnalyzeClasses(packages = "com.myapp")
-public class MyArchitecture03NoLog4j {
+public class MyArchitecture04NoLog4j {
 	
 	public static final ArchCondition<JavaClass> USE_JAVA_LOG4J_LOGGING =
 			setFieldWhere(resideInAPackage("org.apache.log4j..")

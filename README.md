@@ -83,6 +83,14 @@ The tests are easy to read and auto-documented with the usage of the following m
 * shoud() / andShould() / orShould()
 * because() / as()
 
+## Use predefined rules
+Here is the list of predefined rules in Archunit :
+* NO_CLASSES_SHOULD_ACCESS_STANDARD_STREAMS
+* NO_CLASSES_SHOULD_THROW_GENERIC_EXCEPTIONS  
+* NO_CLASSES_SHOULD_USE_JAVA_UTIL_LOGGING
+
+
+
 ## Define your own rules
 Example create a rule to avoid the usage of log4j library (if you want for example to use slf4j as interface).
 
