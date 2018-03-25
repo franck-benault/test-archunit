@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(ArchUnitRunner.class)
 @AnalyzeClasses(packages = "com.myapp")
-public class MyArchitectureTest2WithRunner {
+public class MyArchitecture02WithRunner {
 	
 	
 	@ArchTest
@@ -59,21 +59,12 @@ public class MyArchitectureTest2WithRunner {
             .because("The dto stereotype can only be defined in layer dao.")
             .as("dao classes rule");
 	
-
 	
 	@ArchTest
-	 public static final ArchRule layers_are_respected = layeredArchitecture()
+	public static final ArchRule layers_are_respected = layeredArchitecture()
 	            .layer("Services").definedBy("com.myapp.service")
 	            .layer("Daos").definedBy("com.myapp.dao")
-	            //.layer("Core").definedBy("com.tngtech.archunit.core..")
-	            //.layer("Lang").definedBy("com.tngtech.archunit.lang..")
-	            //.layer("Library").definedBy("com.tngtech.archunit.library..")
-	            //.layer("JUnit").definedBy("com.tngtech.archunit.junit..")
-
 	            .whereLayer("Services").mayNotBeAccessedByAnyLayer();
-	            //.whereLayer("Library").mayOnlyBeAccessedByLayers("JUnit")
-	            //.whereLayer("Lang").mayOnlyBeAccessedByLayers("Library", "JUnit")
-	           //.whereLayer("Core").mayOnlyBeAccessedByLayers("Lang", "Library", "JUnit")
-	//.whereLayer("Base").mayOnlyBeAccessedByLayers("Root", "Core", "Lang", "Library", "JUnit");
+
 
 }

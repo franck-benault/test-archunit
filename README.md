@@ -54,6 +54,31 @@ You can write architectural rules with "normal" JUnit tests.
     }
 ```
 
+## More readable tests with ArchUnitRunner
+You can write more readable tests by using the ArchUnitRunner
+
+Use the annotations on the test class 
+* @RunWith(ArchUnitRunner.class)
+* @AnalyzeClasses(packages = "your.packages.xxx")
+* @ArchIgnore (can be use at class level or at rule level)
+
+The rules are then defined as public attribute annotated with @ArchTest and with the type ArchRule
+
+```java
+@RunWith(ArchUnitRunner.class)
+@AnalyzeClasses(packages = "com.myapp")
+public class MyArchitecture02WithRunner {
+	
+	
+	@ArchTest
+	public static final ArchRule 		services_should_only_be_accessed_by_services_rule =
+			classes().that().resideInAPackage("..service..")
+			.should().onlyBeAccessed().byAnyPackage("..service..")
+			.as("services rule");
+}
+```
+
+
 ## Define your own rules
 Example create a rule to avoid the usage of log4j library (if you want for example to use slf4j as interface).
 
