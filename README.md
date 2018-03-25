@@ -53,3 +53,19 @@ You can write architectural rules with "normal" JUnit tests.
 		 myRule.check(classes);
     }
 ```
+
+## Define your own rules
+Example create a rule to avoid the usage of log4j library (if you want for example to use slf4j as interface).
+
+```java
+	public static final ArchCondition<JavaClass> USE_JAVA_LOG4J_LOGGING =
+			setFieldWhere(resideInAPackage("org.apache.log4j..")
+					.onResultOf(Get.<JavaFieldAccess, FieldAccessTarget>target().then(GET_TYPE)))
+                    .as("use org.apache.log4j");
+
+	@ArchTest
+	public static final ArchRule MUST_NOT_USE_LOG4J_LOGGING = noClasses()
+		.should(USE_JAVA_LOG4J_LOGGING)
+		.because("slf4j should be used instead of log4j");
+```
+
