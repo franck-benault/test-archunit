@@ -19,4 +19,6 @@ public class IgnoringTestClassesTest {
   public static ArchRule NO_TEST_CLASSES = classes().that()
       .resideInAPackage("com.hascode.tutorial..").should()
       .notHaveSimpleName("NoFooMethodCondition");
+  
+  	
 }
