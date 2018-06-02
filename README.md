@@ -154,3 +154,6 @@ Simple examples
     	slices().matching("..(service2).(*)..").namingSlices("$2 of $1").should().beFreeOfCycles()
     	.ignoreDependency(AmountService2.class, AmountService3.class);
 ```
+## Method rules
+There is no simple api to manage rules on methods.
+But it is possible to check the return type or the method name etc ...

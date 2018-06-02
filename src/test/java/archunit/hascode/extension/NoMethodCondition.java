@@ -31,6 +31,8 @@ public class NoMethodCondition extends ArchCondition<JavaClass> {
             .add(SimpleConditionEvent
                 .violated(c, "class " + javaClass.getName() + " contains a method named foo")));
   }
+  
+
 
 
 }
