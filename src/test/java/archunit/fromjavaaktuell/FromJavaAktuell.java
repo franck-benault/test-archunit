@@ -2,7 +2,6 @@ package archunit.fromjavaaktuell;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.all;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.junit.runner.RunWith;
