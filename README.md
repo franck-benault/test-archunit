@@ -180,3 +180,21 @@ Simple examples
 ## Method rules
 There is no simple api to manage rules on methods.
 But it is possible to check the return type or the method name etc ...
+
+
+# Rules syntax
+the global syntaxe is :
+classes that ${PREDICATE} should ${CONDITION}
+
+we can combine predicates with or() and()
+we can combine conditions with andShould() orShould()
+
+It is possible to write its own predicates
+DescribedPredicate<JavaClass> implementing the method apply()
+
+It is possible to write its own conditions
+ArchCondition<JavaClass> implementing the method check()
+
+It is possible to write test on fields, methods, constructors etc
+using ClassesTransformer (method doTransform)
+
