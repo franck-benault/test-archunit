@@ -83,6 +83,29 @@ The tests are easy to read and auto-documented with the usage of the following m
 * shoud() / andShould() / orShould()
 * because() / as()
 
+## check between links
+### check links between packages
+
+link from source to foo is forbidden
+
+```java
+noClasses().that().resideInAPackage("..source..")
+    .should().accessClassesThat().resideInAPackage("..foo..")
+```
+
+foo can just be accessed by foo and source.one
+
+```java
+classes().that().resideInAPackage("..foo..")
+    .should().onlyBeAccessed().byAnyPackage("..source.one..", "..foo..")
+```
+
+### check links between classes
+```java
+classes().that().haveNameMatching(".*Bar")
+    .should().onlyBeAccessed().byClassesThat().haveSimpleName("Bar")
+```
+
 ## Use predefined rules
 Here is the list of predefined rules in Archunit :
 * NO_CLASSES_SHOULD_ACCESS_STANDARD_STREAMS
