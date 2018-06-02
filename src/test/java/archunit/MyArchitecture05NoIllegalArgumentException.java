@@ -30,6 +30,6 @@ public class MyArchitecture05NoIllegalArgumentException {
 	@ArchTest
 	public static final ArchRule MUST_NOT_USE_ILLEGAL_ARGUMENT_EXCEPTION = noClasses()
 		.should(throwIllegalArgumentExceptions)
-		.because("slf4j should be used instead of log4j");
+		.because("do not throw illegal argument exception");
 
 }

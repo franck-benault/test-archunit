@@ -92,6 +92,7 @@ Here is the list of predefined rules in Archunit :
 
 
 ## Define your own rules
+### Rule to avoid log4j
 Example create a rule to avoid the usage of log4j library (if you want for example to use slf4j as interface).
 
 ```java
@@ -105,4 +106,15 @@ Example create a rule to avoid the usage of log4j library (if you want for examp
 		.should(USE_JAVA_LOG4J_LOGGING)
 		.because("slf4j should be used instead of log4j");
 ```
+### Rule to avoid the usage of IllegalArgumentException
 
+```java
+    private static final ArchCondition<JavaClass> throwIllegalArgumentExceptions =
+        callCodeUnitWhere(target(is(constructor()).and(is(declaredIn(IllegalArgumentException.class)))))
+        .as("throw illegalArgument exceptions");
+        
+ 	@ArchTest
+	public static final ArchRule MUST_NOT_USE_ILLEGAL_ARGUMENT_EXCEPTION = noClasses()
+		.should(throwIllegalArgumentExceptions)
+		.because("do not throw illegal argument exception");
+```
