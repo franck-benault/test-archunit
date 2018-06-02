@@ -135,4 +135,8 @@ Methods available :
     public static ArchRule classes_named_dao_should_be_in_a_dao_package =
             classes().that().haveSimpleNameContaining("Dao")
             .should().resideInAPackage("..dao..");
+            
+    @ArchTest
+    public static ArchRule classes_in_dao_package_should_be_ending_with_Dao =
+    classes().that().resideInAPackage("..dao..").should().haveNameMatching(".*Dao$");
 ```
