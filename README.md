@@ -118,3 +118,21 @@ Example create a rule to avoid the usage of log4j library (if you want for examp
 		.should(throwIllegalArgumentExceptions)
 		.because("do not throw illegal argument exception");
 ```
+## Class name convention
+
+Methods available :
+
+* haveSimpleName
+* haveSimpleNameContaining
+* haveSimpleNameEndingWith
+* haveSimpleNameStartingWith
+* haveNameMatching
+* haveNameNotMatching
+* notHaveSimpleName
+
+```java
+    @ArchTest
+    public static ArchRule classes_named_dao_should_be_in_a_dao_package =
+            classes().that().haveSimpleNameContaining("Dao")
+            .should().resideInAPackage("..dao..");
+```
