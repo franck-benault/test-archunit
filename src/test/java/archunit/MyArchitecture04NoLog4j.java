@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import com.tngtech.archunit.core.domain.AccessTarget.FieldAccessTarget;
 import com.tngtech.archunit.core.domain.JavaAccess.Functions.Get;
 import com.tngtech.archunit.junit.AnalyzeClasses;
+import com.tngtech.archunit.junit.ArchIgnore;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.junit.ArchUnitRunner;
 import com.tngtech.archunit.core.domain.JavaClass;
@@ -28,7 +29,7 @@ public class MyArchitecture04NoLog4j {
 	
 
     
-
+	@ArchIgnore
 	@ArchTest
 	public static final ArchRule MUST_NOT_USE_LOG4J_LOGGING = noClasses()
 		.should(USE_JAVA_LOG4J_LOGGING)
