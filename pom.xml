@@ -5,7 +5,7 @@
 	<artifactId>testarchunit</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<archunit.version>0.5.0</archunit.version>
+		<archunit.version>0.8.0</archunit.version>
 	</properties>
 
 	<dependencies>
