@@ -126,7 +126,7 @@ Methods available :
 * haveSimpleNameContaining
 * haveSimpleNameEndingWith
 * haveSimpleNameStartingWith
-* haveNameMatching
+* haveNameMatching (regex)
 * haveNameNotMatching
 * notHaveSimpleName
 
@@ -139,4 +139,18 @@ Methods available :
     @ArchTest
     public static ArchRule classes_in_dao_package_should_be_ending_with_Dao =
     classes().that().resideInAPackage("..dao..").should().haveNameMatching(".*Dao$");
+```
+## No cycle between packages
+Simple examples
+
+```java
+    @ArchTest
+    public static final ArchRule no_cycles_by_method_calls_between_slices =
+    	slices().matching("..(service2).(*)..").namingSlices("$2 of $1").should().beFreeOfCycles();
+
+	//case with an exception
+    @ArchTest
+    public static final ArchRule no_cycles_by_method_calls_between_slices_with_exception =
+    	slices().matching("..(service2).(*)..").namingSlices("$2 of $1").should().beFreeOfCycles()
+    	.ignoreDependency(AmountService2.class, AmountService3.class);
 ```
